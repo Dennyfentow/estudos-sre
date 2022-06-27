@@ -2,11 +2,8 @@ version: '3'
 
 networks:
   database:
-    internal: true
   cache:
-    internal: true
   api:
-    internal: true
   monit:
   proxy:
 
@@ -45,13 +42,17 @@ services:
       dockerfile: Dockerfile
     image: app-forum-api
     container_name: app-forum-api
-    restart: unless-stopped
+    # restart: unless-stopped
+    restart: always
     networks:
       - api
       - database
       - cache
     depends_on:
       - mysql-forum-api
+    ports:
+      - "8080:8080/tcp"
+      
     healthcheck:
       test: "curl -sS http://app-forum-api:8080/actuator/health"
       interval: 1s
