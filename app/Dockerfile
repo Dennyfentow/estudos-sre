@@ -1,4 +1,4 @@
-FROM openjdk:8-jdk-alpine@sha256:94792824df2df33402f201713f932b58cb9de94a0cd524164a0f2283343547b
+FROM openjdk:8-jdk-alpine@sha256:859ea45db307402ee024b153c7a63ad4888eb4751921abbef68679fc73c4c739
 
 RUN addgroup -S spring && adduser -S spring -G spring
 
